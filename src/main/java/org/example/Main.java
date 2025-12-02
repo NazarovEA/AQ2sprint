@@ -1,17 +1,32 @@
 package org.example;
+import model.Apple;
+import model.Meat;
+import model.Food;
+import static model.constants.Colour.COLOUR_GREEN;
+import static model.constants.Colour.COLOUR_RED;
+import java.util.Arrays;
+import service.ShoppingCart;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Инициализируй данные. Для этого создай объекты:
+        //Мясо в количестве 5 кг по цене 100 рублей за кг;
+        Meat meat = new Meat(5, 100);
+        //Яблоки красные в количестве 10 кг по цене 50 рублей;
+        Apple appleRed = new Apple(10, 50, COLOUR_RED);
+        //Яблоки зелёные в количестве 8 кг по цене 60 рублей.
+        Apple appleGreen = new Apple(8, 60, COLOUR_GREEN);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Создай массив продуктов из этих элементов и проинициализируй корзину с помощью созданного массива.
+        Food[] products = {meat, appleRed, appleGreen};
+        ShoppingCart cart = new ShoppingCart(products);
+
+//Посчитай и выведи на экран значения для созданной корзины:
+//общую сумму товаров без скидки,
+//общую сумму товаров со скидкой,
+//сумму всех вегетарианских продуктов без скидки.
+        System.out.println("Общая сумма товаров без скидки: " + cart.getNotDiscount());
+        System.out.println("Общая сумма товаров со скидкой: " + cart.getWithDiscount());
+        System.out.println("Сумма всех вегетарианских продуктов без скидки: " + cart.getVeganNotDiscount());
     }
 }
