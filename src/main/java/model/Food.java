@@ -1,4 +1,5 @@
 package model;
+
 import model.constants.Discount;
 
 public abstract class Food implements Discountable {
