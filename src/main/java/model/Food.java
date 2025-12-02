@@ -1,7 +1,7 @@
 package model;
 import model.constants.Discount;
 
-public abstract class Food {
+public abstract class Food implements Discountable {
     protected int amount;
     protected double price;
     public boolean isVegetarian;
